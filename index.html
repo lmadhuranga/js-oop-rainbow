@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="rainbow.js"></script>
+    <style>
+        #rainbow1 {
+            height: 130px;
+        }
+        
+        #rainbow2 {
+            height: 130px;
+        }
+    </style>
+</head>
+
+<body style="background-color: gray">
+    <div class="rainbow1-container">
+        <div id="rainbow1">
+            <h2>Colors: <span class="colorsNames"></span></h2>
+            <h3>Interval:<span class="displayInterval"></span> ms</h3>
+        </div>
+        <button id="rainbow1Start">Start</button>
+        <button id="rainbow1ChangeColor">Change Color</button>
+        <button id="rainbow1Stop">Stop</button>
+    </div>
+
+    <div class="rainbow2-container">
+        <div id="rainbow2">
+            <h2>Colors: <span class="colorsNames"></span></h2>
+            <h3>Interval:<span class="displayInterval"></span> ms</h3>
+        </div>
+        <button id="rainbow2Start">Start</button>
+        <button id="rainbow2ChangeColor">Change Color</button>
+        <button id="rainbow2Stop">Stop</button>
+    </div>
+    <script>
+        var initialColors = ['red', 'green', 'yellow', 'purple'];
+        var newColorSet = ['blue', 'green', 'yellow'];
+
+        // Create my rain bow
+        var rainbow1 = new Rainbow(initialColors);
+        document.getElementById("rainbow1Start").addEventListener("click", function() {
+            rainbow1.startOn('rainbow1', 1000)
+        });
+
+        // Change the colors 
+        document.getElementById("rainbow1ChangeColor").addEventListener("click", function() {
+            rainbow1.update('rainbow1', newColorSet)
+        });
+
+        document.getElementById("rainbow1Stop").addEventListener("click", function() {
+            rainbow1.stopOn('rainbow1');
+
+        });
+
+
+
+        // Create my rain bow
+        var rainbow2 = new Rainbow(initialColors);
+        document.getElementById("rainbow2Start").addEventListener("click", function() {
+            rainbow2.startOn('rainbow2', 1000)
+        });
+
+        // Change the colors 
+        document.getElementById("rainbow2ChangeColor").addEventListener("click", function() {
+            rainbow2.update('rainbow2', newColorSet)
+        });
+
+        document.getElementById("rainbow2Stop").addEventListener("click", function() {
+            rainbow2.stopOn('rainbow2');
+
+        });
+    </script>
+</body>
+
+</html>
